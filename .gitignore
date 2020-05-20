@@ -1,0 +1,35 @@
+# general
+*~
+*.pyc
+\#*\#
+.\#*
+*DS_Store
+out.txt
+qppwg.egg-info/
+doc/_build
+slurm-*.out
+tmp*
+.eggs/
+.hypothesis/
+.idea
+.backup/
+.pytest_cache/
+__pycache__/
+.coverage*
+coverage.xml*
+.vscode*
+.nfs*
+dist/
+build/
+.pre-commit-config.yaml
+
+# recipe related
+egs/*/data/wav/*
+egs/*/data/hdf5/*
+egs/*/data/world/*
+egs/*/exp
+egs/*/conf/*_c16.yaml
+
+# tools related
+tools/venv/
+tools/apex/

@@ -1,0 +1,56 @@
+VCC2SF1:
+  f0_max: 450
+  f0_min: 100
+  pow_th: -31
+VCC2SF2:
+  f0_max: 350
+  f0_min: 110
+  pow_th: -31
+VCC2SF3:
+  f0_max: 340
+  f0_min: 110
+  pow_th: -38
+VCC2SF4:
+  f0_max: 330
+  f0_min: 120
+  pow_th: -34
+VCC2SM1:
+  f0_max: 200
+  f0_min: 50
+  pow_th: -31
+VCC2SM2:
+  f0_max: 300
+  f0_min: 70
+  pow_th: -40
+VCC2SM3:
+  f0_max: 220
+  f0_min: 45
+  pow_th: -35
+VCC2SM4:
+  f0_max: 260
+  f0_min: 45
+  pow_th: -32
+VCC2TF1:
+  f0_max: 350
+  f0_min: 140
+  pow_th: -45
+VCC2TF2:
+  f0_max: 400
+  f0_min: 100
+  pow_th: -30
+VCC2TM1:
+  f0_max: 200
+  f0_min: 60
+  pow_th: -23
+VCC2TM2:
+  f0_max: 280
+  f0_min: 50
+  pow_th: -31
+bdl:
+  f0_max: 240
+  f0_min: 50
+  pow_th: -30
+slt:
+  f0_max: 340
+  f0_min: 130
+  pow_th: -28
