@@ -6,9 +6,7 @@
 This is official [QPPWG](https://arxiv.org/abs/2005.08654) PyTorch implementation.
 QPPWG is a non-autoregressive neural speech generation model developed based on [PWG](https://ieeexplore.ieee.org/abstract/document/9053795) and a [QP](https://bigpon.github.io/QuasiPeriodicWaveNet_demo) structure.
 
-<center> <img src="https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png" style="display:block;width:370px;height:320px"> </center>
-
-<!-- ![](https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png) -->
+![](https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png)
 
 In this repo, we provide an example to train and test QPPWG as a vocoder for [WORLD](https://doi.org/10.1587/transinf.2015EDP7457) acoustic features.
 More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo) page.
