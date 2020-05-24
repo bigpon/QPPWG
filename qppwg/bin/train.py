@@ -490,7 +490,7 @@ def main():
                         help="list of validation wav files")
     parser.add_argument("--valid_feat", required=True, type=str,
                         help="list of validation feat files")
-    parser.add_argument("--stats", required=True, type=str,
+    parser.add_argument("--stats", required=True, type=str, 
                         help="hdf5 file including statistics")
     parser.add_argument("--outdir", required=True, type=str,
                         help="directory to save checkpoints.")
@@ -504,7 +504,7 @@ def main():
                         help="logging level. higher is more logging. (default=1)")
     parser.add_argument("--rank", "--local_rank", default=0, type=int,
                         help="rank for distributed training. no need to explictly specify.")
-    parser.add_argument("--seed", default=1, type=int,
+    parser.add_argument("--seed", default=1, type=int, 
                         help="seed number")
     args = parser.parse_args()
 
@@ -765,7 +765,7 @@ def main():
         logging.info(f"Successfully load parameters from {args.pretrain}.")
     else:
         logging.info("Start a new training process.")
-
+        
     # run training loop
     try:
         trainer.run()

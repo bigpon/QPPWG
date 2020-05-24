@@ -16,7 +16,7 @@ mcep_alpha: 0.455          # Mcep alpha
 highpass_cutoff: 70        # Cutoff frequency of preprocessing highpass filter
 uv_dim_idx: 0              # u/v dimension index
 f0_dim_idx: 1              # f0 dimension index
-ap_dim_start: 37           # First dimension index of coded ap
+ap_dim_start: 37           # First dimension index of coded ap 
 ap_dim_end: 39             # Last dimension index of coded ap
 mcep_dim_start: 2          # First dimension index of mcep
 mcep_dim_end: 37           # Last dimension index of mcep
@@ -34,7 +34,6 @@ generator_type: "QPPWGGenerator" # Generator type.
 generator_params:
     in_channels: 1        # Number of input channels.
     out_channels: 1       # Number of output channels.
-    kernel_size: 3        # Kernel size of dilated convolution.
     blockA: 0             # Number of adaptive residual blocks.
     cycleA: 0             # Number of adaptive dilation cycles.
     blockF: 30            # Number of fixed residual blocks.

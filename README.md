@@ -18,7 +18,7 @@ More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicPa
 
 ## Requirements
 
-This repository is tested on Ubuntu 16.04 with a GPU Titan V.
+This repository is tested on Ubuntu 16.04 with a Titan V GPU.
 
 - Python 3.6+
 - Cuda 10.0
@@ -39,22 +39,22 @@ $ cd QPPWG
 $ pip install -e .
 ```
 
-More details can refer to the [PWG](https://github.com/kan-bayashi/ParallelWaveGAN) repo.
+Please refer to the [PWG](https://github.com/kan-bayashi/ParallelWaveGAN) repo for more details.
 
 
 ## Folder architecture
-- **egs**
-the folder for projects.
-- **egs/vcc18**
-the folder of the VCC2018 project.
-- **egs/vcc18/exp**
-the folder for trained models.
-- **egs/vcc18/conf**
-the folder for configs.
-- **egs/vcc18/data**
-the folder for corpus related files (wav, feature, list ...).
-- **qppwg**
-the folder of the source codes.
+- **egs**:  
+The folder for projects.
+- **egs/vcc18**:  
+The folder of the VCC2018 project.
+- **egs/vcc18/exp**:  
+The folder for trained models.
+- **egs/vcc18/conf**:  
+The folder for configs.
+- **egs/vcc18/data**:  
+The folder for corpus related files (wav, feature, list ...).
+- **qppwg**:  
+The folder of the source codes.
 
 
 ## Run
@@ -87,8 +87,8 @@ $ bash run.sh --stage 0 --config PWG_30
 ```
 
 - WORLD-related settings can be changed in `egs/vcc18/conf/vcc18.PWG_30.yaml`.
-- If you want to extract other corpus, please create a corresponding config and a file including power thresholds and f0 ranges like `egs/vcc18/data/pow_f0_dict.yml`.
-- More details about feature extraction can refer to the [QPNet](https://github.com/bigpon/QPNet) repo.
+- If you want to use another corpus, please create a corresponding config and a file including power thresholds and f0 ranges like `egs/vcc18/data/pow_f0_dict.yml`.
+- More details about feature extraction can be found in the [QPNet](https://github.com/bigpon/QPNet) repo.
 - The lists of auxiliary features will be automatically generated.
 - **Training aux lists**: `data/scp/vcc18_train_22kHz.list`.
 - **Validation aux lists**: `data/scp/vcc18_valid_22kHz.list`.
@@ -163,10 +163,10 @@ year={2020}
 
 ## Authors
 
-Development:
-Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))
-E-mail: `yichiao.wu@g.sp.m.is.nagoya-u.ac.jp`
-
-Advisor:
-Tomoki Toda @ Nagoya University
-E-mail: `tomoki@icts.nagoya-u.ac.jp`
+Development:  
+Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))  
+E-mail: `yichiao.wu@g.sp.m.is.nagoya-u.ac.jp`  
+  
+Advisor:  
+Tomoki Toda @ Nagoya University  
+E-mail: `tomoki@icts.nagoya-u.ac.jp`  

@@ -79,7 +79,7 @@ class QPPWGGenerator(torch.nn.Module):
             "aux_context_window": aux_context_window,
         })
         self.upsample_net = getattr(upsample, "ConvInUpsampleNetwork")(**upsample_params)
-
+        
         # define fixed residual blocks
         fixed_blocks = torch.nn.ModuleList()
         for block in range(blockF):
@@ -93,7 +93,7 @@ class QPPWGGenerator(torch.nn.Module):
                 bias=True,
             )
             fixed_blocks += [conv]
-
+        
         # define adaptive residual blocks
         adaptive_blocks = torch.nn.ModuleList()
         for block in range(blockA):
@@ -105,7 +105,7 @@ class QPPWGGenerator(torch.nn.Module):
                 bias=True,
             )
             adaptive_blocks += [conv]
-
+        
         # define cascaded structure
         if cascade_mode == 0:  # fixed->adaptive
             self.conv_dilated = fixed_blocks.extend(adaptive_blocks)
