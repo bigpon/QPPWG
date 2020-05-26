@@ -29,6 +29,7 @@ egs/*/data/hdf5/*
 egs/*/data/world/*
 egs/*/exp
 egs/*/conf/*_c16.yaml
+egs/*/data/scp/*.list
 
 # tools related
 tools/venv/

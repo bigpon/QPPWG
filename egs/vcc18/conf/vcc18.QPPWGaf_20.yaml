@@ -39,9 +39,9 @@ generator_params:
     blockF: 10            # Number of fixed residual blocks.
     cycleF: 1             # Number of fixed dilation cycles.
     cascade_mode: 1       # Network cascaded mode (0: fix->adaptive; 1: adaptive->fix).
-    residual_channels: 16 # Number of channels in residual conv.
-    gate_channels: 32     # Number of channels in gated conv.
-    skip_channels: 16     # Number of channels in skip conv.
+    residual_channels: 64 # Number of channels in residual conv.
+    gate_channels: 128    # Number of channels in gated conv.
+    skip_channels: 64     # Number of channels in skip conv.
     aux_channels: 39      # Number of channels for auxiliary feature conv.
     aux_context_window: 2 # Context window size for auxiliary feature.
                           # If set to 2, previous 2 and future 2 frames will be considered.
