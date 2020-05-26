@@ -138,10 +138,10 @@ $ tensorboard --logdir exp
 
 ```bash
 # On CPU (Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz 32 threads)
-[decode]: 100%|██████████████████████████████████████████████████████████████████████| 140/140 [04:50<00:00,  2.08s/it, RTF=0.771]
+[decode]: 100%|███████████| 140/140 [04:50<00:00,  2.08s/it, RTF=0.771]
 2020-05-26 12:30:27,273 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.579).
 # On GPU (TITAN V)
-[decode]: 100%|█████████████████████████████████████████████████████████████████████| 140/140 [00:09<00:00, 14.89it/s, RTF=0.0155]
+[decode]: 100%|███████████| 140/140 [00:09<00:00, 14.89it/s, RTF=0.0155]
 2020-05-26 12:32:26,160 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.016).
 ```
 
@@ -149,10 +149,10 @@ $ tensorboard --logdir exp
 
 ```bash
 # On CPU (Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz 32 threads)
-[decode]: 100%|██████████████████████████████████████████████████████████████████████| 140/140 [04:12<00:00,  1.81s/it, RTF=0.455]
+[decode]: 100%|███████████| 140/140 [04:12<00:00,  1.81s/it, RTF=0.455]
 2020-05-26 12:38:15,982 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.512).
 # On GPU (TITAN V)
-[decode]: 100%|█████████████████████████████████████████████████████████████████████| 140/140 [00:11<00:00, 12.57it/s, RTF=0.0218]
+[decode]: 100%|███████████| 140/140 [00:11<00:00, 12.57it/s, RTF=0.0218]
 2020-05-26 12:33:32,469 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.020).
 ```
 
