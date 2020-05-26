@@ -125,9 +125,6 @@ $ bash run.sh --gpu 0 --stage 3 --conf QPPWGaf_20 --scaled 0.50 \
 $ tensorboard --logdir exp
 ```
 
-- The RTF of PWG_30 decoding with a TITAN V is **0.016**.
-- The RTF of PWG_20 decoding with a TITAN V is **0.011**.
-- The RTF of QPPWGaf_20 decoding with a TITAN V is **0.018**.
 - The training time of PWG_30 with a TITAN V is around 3 days.
 - The training time of QPPWGaf_20 with a TITAN V is around 5 days.
 
