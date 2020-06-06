@@ -17,7 +17,7 @@ NUMTAPS = 255
 
 
 def low_cut_filter(x, fs, cutoff=70):
-    """ Low-cut filter
+    """ Low-cut filter 
     Args:
         x (ndarray): Waveform sequence
         fs (int): Sampling frequency

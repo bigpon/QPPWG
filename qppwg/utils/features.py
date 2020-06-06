@@ -38,7 +38,7 @@ def validate_length(x, y, hop_size=None):
 
 
 def batch_f0(h, f0_threshold=0, f0_cont=True, f0_idx=1, uv_idx=0):
-    """ load f0
+    """ load f0 
     Args:
         h (ndarray): the auxiliary acoustic features (T x D)
         f0_threshold (float): the lower bound of pitch
@@ -46,7 +46,7 @@ def batch_f0(h, f0_threshold=0, f0_cont=True, f0_idx=1, uv_idx=0):
         f0_idx: the dimension index of f0
         uv_idx: the dimension index of U/V
     Return:
-        f0(ndarray):
+        f0(ndarray): 
             float array of the f0 sequence (T)
     """
     if (f0_idx < 0) or (uv_idx < 0):
@@ -68,7 +68,7 @@ def dilated_factor(batch_f0, fs, dense_factor):
         fs (int): sampling rate
         dense_factor (int): the number of taps in one cycle
     Return:
-        dilated_factors(np array):
+        dilated_factors(np array): 
             float array of the pitch-dependent dilated factors (T)
     """
     batch_f0[batch_f0 == 0] = fs / dense_factor

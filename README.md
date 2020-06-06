@@ -142,6 +142,17 @@ $ tensorboard --logdir exp
 2020-05-26 12:32:26,160 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.016).
 ```
 
+- PWG w/ only 20 blocks (PWG_20)
+
+```bash
+# On CPU (Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz 32 threads)
+[decode]: 100%|███████████| 140/140 [03:57<00:00,  1.70s/it, RTF=0.761]
+2020-05-30 13:50:20,438 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.474).
+# On GPU (TITAN V)
+[decode]: 100%|███████████| 140/140 [00:08<00:00, 16.55it/s, RTF=0.0105]
+2020-05-30 13:43:50,793 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.011).
+```
+
 - QPPWG (QPPWGaf_20)  
 
 ```bash

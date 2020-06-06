@@ -9,7 +9,7 @@ import torch
 from torch.nn import ConstantPad1d as pad1d
 
 
-def pd_indexing(x, d, dilation,
+def pd_indexing(x, d, dilation, 
                 batch_index, ch_index):
     """Pitch-dependent indexing of past and future samples.
 
@@ -27,7 +27,7 @@ def pd_indexing(x, d, dilation,
     """
     (_, _, batch_length) = d.size()
     dilations = d * dilation
-
+    
     # get past index
     idxP = torch.arange(-batch_length, 0).float()
     if torch.cuda.is_available():
@@ -58,7 +58,7 @@ def pd_indexing(x, d, dilation,
 def index_initial(n_batch, n_ch, tensor=True):
     """Tensor batch and channel index initialization.
 
-        Args:
+        Args:          
             n_batch (Int): Number of batch.
             n_ch (Int): Number of channel.
             tensor (bool): Return tensor or numpy array
@@ -75,7 +75,7 @@ def index_initial(n_batch, n_ch, tensor=True):
     for i in range(n_ch):
         ch_index += [[i]]
     ch_index = [ch_index] * n_batch
-
+    
     if tensor:
         batch_index = torch.tensor(batch_index)
         ch_index = torch.tensor(ch_index)

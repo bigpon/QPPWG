@@ -137,7 +137,7 @@ class AudioFeatDataset(Dataset):
         feat = self.feat_load_fn(self.feat_files[idx])
         audio, feat = validate_length(audio, feat, self.hop_size)
         # get dilated factor sequence
-        f0 = batch_f0(feat, self.f0_threshold, self.f0_cont,
+        f0 = batch_f0(feat, self.f0_threshold, self.f0_cont, 
                       self.f0_dim_idx, self.uv_dim_idx)
         df = dilated_factor(f0, fs, self.dense_factor)
         df = df.repeat(self.hop_size, axis=0)
@@ -243,7 +243,7 @@ class FeatDataset(Dataset):
             self.manager = Manager()
             self.caches = self.manager.list()
             self.caches += [() for _ in range(len(feat_files))]
-
+        
         # define feature pre-processing function
         scaler = load(stats)
         self.feat_transform = lambda x: scaler.transform(x)
@@ -265,9 +265,9 @@ class FeatDataset(Dataset):
         feat = self.feat_load_fn(self.feat_files[idx])
         # f0 scaled
         if self.f0_factor != 1.0:
-            feat[:, self.f0_dim_idx] *= self.f0_factor
+            feat[:, self.f0_dim_idx] *= self.f0_factor  
         # get dilated factor sequence
-        f0 = batch_f0(feat, self.f0_threshold, self.f0_cont,
+        f0 = batch_f0(feat, self.f0_threshold, self.f0_cont, 
                       self.f0_dim_idx, self.uv_dim_idx)
         df = dilated_factor(f0, self.fs, self.dense_factor)
         df = df.repeat(self.hop_size, axis=0)

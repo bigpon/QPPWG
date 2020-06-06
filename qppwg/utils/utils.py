@@ -148,7 +148,7 @@ def check_filename(list1, list2):
     Arg:
         list1 (list): file list 1
         list2 (list): file list 2
-
+    
     Return:
         (bool): matched (True) or not (False)
     """
