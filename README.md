@@ -180,15 +180,6 @@ $ tensorboard --logdir exp
 - Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.  
 - The generated utterances are in the `wav` folder of each model’s folder. (Only the vcc18 results are released now.)
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
-</style>
 <center><table class="tg">
 <thead>
   <tr>
@@ -318,7 +309,7 @@ $ qppwg-decode \
     --outdir exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/ \
     --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl 
 # The generated utterances can be found in `exp/[model]/wav/400000/`
-$ ls ls exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/
+$ ls exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/
   sample1.wav    sample1_f0.50.wav    sample2.wav    sample2_f0.50.wav   
 ```
 
