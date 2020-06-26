@@ -3,17 +3,22 @@
 
 [![](https://img.shields.io/pypi/v/qppwg)](https://pypi.org/project/qppwg/) ![](https://img.shields.io/pypi/pyversions/qppwg) ![](https://img.shields.io/pypi/l/qppwg)
 
+
 This is official [QPPWG](https://arxiv.org/abs/2005.08654) PyTorch implementation.
 QPPWG is a non-autoregressive neural speech generation model developed based on [PWG](https://ieeexplore.ieee.org/abstract/document/9053795) and a [QP](https://bigpon.github.io/QuasiPeriodicWaveNet_demo) structure.
 
-![](https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png)
+<div style="text-align: center">
+<img src="https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png"/>
+</div>
 
 In this repo, we provide an example to train and test QPPWG as a vocoder for [WORLD](https://doi.org/10.1587/transinf.2015EDP7457) acoustic features.
 More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicParallelWaveGAN_demo) page.
 
 
 ## News
-- **2020/5/20** release the first version.
+<!--- **2020/6/30** Release the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.-->
+- **2020/6/26** Release the pre-trained models of [vcc18](http://www.vc-challenge.org/vcc2018/index.html) corpus.
+- **2020/5/20** Release the first version.
 
 
 ## Requirements
@@ -165,8 +170,157 @@ $ tensorboard --logdir exp
 ```
 
 
-## Results
-[TODO] We will release the pre-trained models and all generated samples around June 2020.
+## Models and results
+
+[TODO] We will release mel-spectrogram extraction and vcc20 pre-trained model.
+
+- The pre-trained models and generated utterances are released.  
+- You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.  
+- You also can only download the `[corpus]/data` folder and the desired pre-trained model and then put the `data` folder in `egs/[corpus]` and the model folder in `egs/[corpus]/exp`.  
+- Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.  
+- The generated utterances are in the `wav` folder of each model’s folder. (Only the vcc18 results are released now.)
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+</style>
+<center><table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">Corpus</th>
+    <th class="tg-0lax">Lang</th>
+    <th class="tg-0lax">Fs [Hz]</th>
+    <th class="tg-0lax">Feature</th>
+    <th class="tg-0lax">Model</th>
+    <th class="tg-0lax">Conf</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky" rowspan="3">
+    <a href="https://drive.google.com/drive/folders/1WFqk08lJE4LrYocUxZo7cdT7_BxGitiL?usp=sharing">
+    vcc18</a></td>
+    <td class="tg-0pky" rowspan="3">EN</td>
+    <td class="tg-0pky" rowspan="3">22050</td>
+    <td class="tg-0pky" rowspan="3">world</td>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/1kTQ0iYBy7t7EnxFiwhh7gII1KVDpuvts?usp=sharing">
+    PWG_20</a></td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.PWG_20.yaml">
+    link</a></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/1HHCgFpqJQO9NnrDkZdNKvw4WeCm_xPWl?usp=sharing">
+    PWG_30</td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.PWG_30.yaml">
+    link</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/12kbJNKjqJwcImc4iTcu6J53s4st297bD?usp=sharing">
+    QPPWGaf_20</td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.QPPWGaf_20.yaml">
+    link</td>
+  </tr>
+  <!--
+  <tr>
+    <td class="tg-0pky" rowspan="3">
+    <a href="https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing">
+    vcc20</td>
+    <td class="tg-0pky" rowspan="3">EN</td>
+    <td class="tg-0pky" rowspan="3">24000</td>
+    <td class="tg-0pky" rowspan="3">melfb + f0</td>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/1TTJMGyzHSSLzqqFcQwYyjsKwcW48S9zc?usp=sharing">
+    PWG_20</td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.PWG_20.yaml">
+    link</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/1rrHVtBQRqclsskBJi6IErF-FqOqb6v37?usp=sharing">
+    PWG_30</td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.PWG_30.yaml">
+    link</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">
+    <a href="https://drive.google.com/drive/folders/1UXZG17xsE3MCqroAe_5vj49aeW7xEH6M?usp=sharing">
+    QPPWGaf_20</td>
+    <td class="tg-0pky">
+    <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.QPPWGaf_20.yaml">
+    link</td>
+  </tr>
+  -->
+</tbody>
+</table></center> 
+
+
+## Usage of pre-trained models
+
+### Analysis-synthesis
+
+The minimum code for performing analysis and synthesis is presented.
+
+```bash
+# Make sure you have installed `qppwg`
+# If not, install it via pip
+$ pip install qppwg
+# Take "vcc18" corpus as an example
+# Download the whole folder of "vcc18"
+$ ls vcc18
+  data    exp
+# Change directory to `vcc18` folder
+$ cd vcc18
+# Put audio files in `data/wav/` directory
+$ ls data/wav/
+  sample1.wav    sample2.wav
+# Create a list `data/sample.scp` of the audio files
+$ tail data/scp/sample.scp
+  data/wav/sample1.wav
+  data/wav/sample2.wav
+# Extract acoustic features
+$ qppwg-preprocess \
+    --audio data/scp/sample.scp \
+    --indir wav \
+    --outdir hdf5 \
+    --config exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/config.yml
+# The extracted features are in `data/hdf5/`
+# The feature list `data/sample.list` of the feature files will be automatically generated
+$ ls data/hdf5/
+  sample1.h5    sample2.h5
+$ ls data/scp/
+  sample.scp    sample.list
+# Synthesis
+$ qppwg-decode \
+    --eval_feat data/scp/sample.list \
+    --stats data/stats/vcc18_train_22kHz.joblib \
+    --indir data/hdf5/ \
+    --outdir exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/ \
+    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl 
+# Synthesis w/ halved F0
+$ qppwg-decode \
+    --f0_factor 0.50 \
+    --eval_feat data/scp/sample.list \
+    --stats data/stats/vcc18_train_22kHz.joblib \
+    --indir data/hdf5/ \
+    --outdir exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/ \
+    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl 
+# The generated utterances can be found in `exp/[model]/wav/400000/`
+$ ls ls exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/
+  sample1.wav    sample1_f0.50.wav    sample2.wav    sample2_f0.50.wav   
+```
 
 
 ## References
