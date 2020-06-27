@@ -34,6 +34,3 @@ egs/*/data/scp/*.list
 # tools related
 tools/venv/
 tools/apex/
-
-# uncomplish
-egs/vcc20

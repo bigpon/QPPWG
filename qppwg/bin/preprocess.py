@@ -18,7 +18,9 @@ import sys
 import copy
 import yaml
 import pyworld
+import librosa
 import numpy as np
+import soundfile as sf
 
 from distutils.util import strtobool
 from scipy.interpolate import interp1d
@@ -336,6 +338,115 @@ def world_feature_extract(queue, wav_list, config):
     queue.put('Finish')
 
 
+# Mel-spec and f0 features
+def logmelfilterbank(audio,
+                     sampling_rate,
+                     fft_size=1024,
+                     hop_size=256,
+                     win_length=None,
+                     window="hann",
+                     num_mels=80,
+                     fmin=None,
+                     fmax=None,
+                     eps=1e-10,
+                     ):
+    """Extract log-Mel filterbank feature.
+
+    Args:
+        audio (ndarray): Audio signal (T,).
+        sampling_rate (int): Sampling rate.
+        fft_size (int): FFT size.
+        hop_size (int): Hop size.
+        win_length (int): Window length. If set to None, it will be the same as fft_size.
+        window (str): Window function type.
+        num_mels (int): Number of mel basis.
+        fmin (int): Minimum frequency in mel basis calculation.
+        fmax (int): Maximum frequency in mel basis calculation.
+        eps (float): Epsilon value to avoid inf in log calculation.
+
+    Returns:
+        ndarray: Log Mel filterbank feature (#frames, num_mels).
+
+    """
+    # get amplitude spectrogram
+    x_stft = librosa.stft(audio, n_fft=fft_size, hop_length=hop_size,
+                          win_length=win_length, window=window, pad_mode="reflect")
+    spc = np.abs(x_stft).T  # (#frames, #bins)
+
+    # get mel basis
+    fmin = 0 if fmin is None else fmin
+    fmax = sampling_rate / 2 if fmax is None else fmax
+    mel_basis = librosa.filters.mel(sampling_rate, fft_size, num_mels, fmin, fmax)
+
+    return np.log10(np.maximum(eps, np.dot(spc, mel_basis.T)))
+
+
+def melf0_feature_extract(queue, wav_list, config):
+    """Mel-spc w/ F0 feature extraction
+
+    Args:
+        queue (multiprocessing.Queue): the queue to store the file name of utterance
+        wav_list (list): list of the wav files
+        config (dict): feature extraction config
+
+    """
+    # define f0 feature extractor
+    feature_extractor = FeatureExtractor(
+        analyzer="world",
+        fs=config['sampling_rate'],
+        shiftms=config['shiftms'],
+        minf0=config['minf0'],
+        maxf0=config['maxf0'],
+        fftl=config['fft_size'])
+    # extraction
+    for i, wav_name in enumerate(wav_list):
+        logging.info("now processing %s (%d/%d)" % (wav_name, i + 1, len(wav_list)))
+
+        # load wavfile
+        (x, fs) = sf.read(wav_name)
+
+        # check sampling frequency
+        if not fs == config['sampling_rate']:
+            logging.error("sampling frequency is not matched.")
+            sys.exit(1)
+
+        # extract f0 and uv features
+        f0, _, _ = feature_extractor.analyze(x)
+        uv, cont_f0 = convert_continuos_f0(f0)
+        lpf_fs = int(1.0 / (config['shiftms'] * 0.001))
+        cont_f0_lpf = low_pass_filter(cont_f0, lpf_fs, cutoff=20)
+        next_cutoff = 70
+        while not (cont_f0_lpf >= [0]).all():
+            cont_f0_lpf = low_pass_filter(cont_f0, lpf_fs, cutoff=next_cutoff)
+            next_cutoff *= 2
+
+        # extract mel-spc feature
+        mel = logmelfilterbank(x, fs,
+                               fft_size=config["fft_size"],
+                               hop_size=config["hop_size"],
+                               win_length=config["win_length"],
+                               window=config["window"],
+                               num_mels=config["num_mels"],
+                               fmin=config["fmin"],
+                               fmax=config["fmax"])
+
+        # concatenate
+        cont_f0_lpf = np.expand_dims(cont_f0_lpf, axis=-1)
+        uv = np.expand_dims(uv, axis=-1)
+        minlen = min(uv.shape[0], mel.shape[0])
+        feats = np.concatenate([uv[:minlen, :], cont_f0_lpf[:minlen, :],
+                                mel.astype(np.float32)[:minlen, :]], axis=1)
+
+        # save feature
+        feat_name = path_replace(wav_name, config['indir'],
+                                 config['outdir'], extname=config['feature_format'])
+        write_hdf5(feat_name, "/%s" % (config["feat_type"]), feats)
+        if config['save_f0']:
+            write_hdf5(feat_name, "/f0", f0)
+
+    queue.put('Finish')
+
+
 def main():
     # parser arguments
     args = _get_arguments()
@@ -398,8 +509,18 @@ def main():
             target_fn = world_speech_synthesis
             # create folder
             path_create(file_list, "wav", "world", "wav")
+    elif config['feat_type'][:6] == "melf0h":
+        if args.inv:
+            target_fn = melf0_feature_extract
+            # create auxiliary feature list
+            aux_list_create(args.audio, config)
+            # create folder
+            path_create(file_list, config['indir'],
+                        config['outdir'], config['feature_format'])
+        else:
+            raise NotImplementedError("Currently, only mel-spec extraction is supported.")
     else:
-        raise NotImplementedError("Currently, only 'world' is supported.")
+        raise NotImplementedError("Currently, only 'world' and 'melf0hxxx' are supported.")
 
     # multi processing
     processes = []

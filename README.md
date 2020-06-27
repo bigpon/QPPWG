@@ -5,7 +5,7 @@
 
 
 This is official [QPPWG](https://arxiv.org/abs/2005.08654) PyTorch implementation.
-QPPWG is a non-autoregressive neural speech generation model developed based on [PWG](https://ieeexplore.ieee.org/abstract/document/9053795) and a [QP](https://bigpon.github.io/QuasiPeriodicWaveNet_demo) structure.
+QPPWG is a non-autoregressive neural speech generation model developed based on [PWG](https://ieeexplore.ieee.org/abstract/document/9053795) and [QP](https://bigpon.github.io/QuasiPeriodicWaveNet_demo) structure.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/10822486/82352944-af1dca80-9a39-11ea-806d-1aa6a91d2773.png"/>
@@ -16,7 +16,8 @@ More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicPa
 
 
 ## News
-<!--- **2020/6/30** Release the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.-->
+
+- **2020/6/27** Release **mel-spec** feature extraction and the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.
 - **2020/6/26** Release the pre-trained models of [vcc18](http://www.vc-challenge.org/vcc2018/index.html) corpus.
 - **2020/5/20** Release the first version.
 
@@ -48,17 +49,17 @@ Please refer to the [PWG](https://github.com/kan-bayashi/ParallelWaveGAN) repo f
 
 
 ## Folder architecture
-- **egs**:  
+- **egs**:
 The folder for projects.
-- **egs/vcc18**:  
+- **egs/vcc18**:
 The folder of the VCC2018 project.
-- **egs/vcc18/exp**:  
+- **egs/vcc18/exp**:
 The folder for trained models.
-- **egs/vcc18/conf**:  
+- **egs/vcc18/conf**:
 The folder for configs.
-- **egs/vcc18/data**:  
+- **egs/vcc18/data**:
 The folder for corpus related files (wav, feature, list ...).
-- **qppwg**:  
+- **qppwg**:
 The folder of the source codes.
 
 
@@ -158,7 +159,7 @@ $ tensorboard --logdir exp
 2020-05-30 13:43:50,793 (decode:156) INFO: Finished generation of 140 utterances (RTF = 0.011).
 ```
 
-- QPPWG (QPPWGaf_20)  
+- QPPWG (QPPWGaf_20)
 
 ```bash
 # On CPU (Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz 32 threads)
@@ -174,13 +175,13 @@ $ tensorboard --logdir exp
 
 [TODO] We will release mel-spectrogram extraction and vcc20 pre-trained model.
 
-- The pre-trained models and generated utterances are released.  
-- You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.  
-- You also can only download the `[corpus]/data` folder and the desired pre-trained model and then put the `data` folder in `egs/[corpus]` and the model folder in `egs/[corpus]/exp`.  
-- Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.  
-- The generated utterances are in the `wav` folder of each model’s folder. (Only the vcc18 results are released now.)
+- The pre-trained models and generated utterances are released.
+- You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.
+- You also can only download the `[corpus]/data` folder and the desired pre-trained model and then put the `data` folder in `egs/[corpus]` and the model folder in `egs/[corpus]/exp`.
+- Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.
+- The generated utterances are in the `wav` folder of each model’s folder.
 
-<p align="center">
+<center>
 <table class="tg">
 <thead>
   <tr>
@@ -223,7 +224,6 @@ $ tensorboard --logdir exp
     <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.QPPWGaf_20.yaml">
     link</td>
   </tr>
-  <!--
   <tr>
     <td class="tg-0pky" rowspan="3">
     <a href="https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing">
@@ -254,10 +254,9 @@ $ tensorboard --logdir exp
     <a href="https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.QPPWGaf_20.yaml">
     link</td>
   </tr>
-  -->
 </tbody>
-</table> 
-</p>
+</table>
+</center>
 
 
 ## Usage of pre-trained models
@@ -301,7 +300,7 @@ $ qppwg-decode \
     --stats data/stats/vcc18_train_22kHz.joblib \
     --indir data/hdf5/ \
     --outdir exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/ \
-    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl 
+    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl
 # Synthesis w/ halved F0
 $ qppwg-decode \
     --f0_factor 0.50 \
@@ -309,10 +308,10 @@ $ qppwg-decode \
     --stats data/stats/vcc18_train_22kHz.joblib \
     --indir data/hdf5/ \
     --outdir exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/ \
-    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl 
+    --checkpoint exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/checkpoint-400000steps.pkl
 # The generated utterances can be found in `exp/[model]/wav/400000/`
 $ ls exp/qppwg_vcc18_train_22kHz_QPPWGaf_20/wav/400000/
-  sample1.wav    sample1_f0.50.wav    sample2.wav    sample2_f0.50.wav   
+  sample1.wav    sample1_f0.50.wav    sample2.wav    sample2_f0.50.wav
 ```
 
 
@@ -343,10 +342,10 @@ year={2020}
 
 ## Authors
 
-Development:  
-Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))  
-E-mail: `yichiao.wu@g.sp.m.is.nagoya-u.ac.jp`  
-  
-Advisor:  
-Tomoki Toda @ Nagoya University  
-E-mail: `tomoki@icts.nagoya-u.ac.jp`  
+Development:
+Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))
+E-mail: `yichiao.wu@g.sp.m.is.nagoya-u.ac.jp`
+
+Advisor:
+Tomoki Toda @ Nagoya University
+E-mail: `tomoki@icts.nagoya-u.ac.jp`
