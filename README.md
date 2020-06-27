@@ -173,7 +173,10 @@ $ tensorboard --logdir exp
 
 ## Models and results
 
-[TODO] We will release mel-spectrogram extraction and vcc20 pre-trained model.
+[NOTE] `vcc20` now is only for version "qppwg 0.1.2a0". If you want to test with `vcc20`, please install qppwg by
+```bash
+$ pip install qppwg==0.1.2a0
+```
 
 - The pre-trained models and generated utterances are released.
 - You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.
@@ -181,7 +184,17 @@ $ tensorboard --logdir exp
 - Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.
 - The generated utterances are in the `wav` folder of each model’s folder.
 
-<center>
+<!--
+| Corpus | Lang | Fs [Hz] | Feature | Model | Conf |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| [vcc18](https://drive.google.com/drive/folders/1WFqk08lJE4LrYocUxZo7cdT7_BxGitiL?usp=sharing) | EN | 22050 | world<br>(uv + f0 +mcep + ap) | [PWG_20](https://drive.google.com/drive/folders/1kTQ0iYBy7t7EnxFiwhh7gII1KVDpuvts?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.PWG_20.yaml) |
+| [vcc18](https://drive.google.com/drive/folders/1WFqk08lJE4LrYocUxZo7cdT7_BxGitiL?usp=sharing) | EN | 22050 | world | [PWG_30](https://drive.google.com/drive/folders/1HHCgFpqJQO9NnrDkZdNKvw4WeCm_xPWl?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.PWG_30.yaml) |
+| [vcc18](https://drive.google.com/drive/folders/1WFqk08lJE4LrYocUxZo7cdT7_BxGitiL?usp=sharing) | EN | 22050 | world | [QPPWGaf_20](https://drive.google.com/drive/folders/12kbJNKjqJwcImc4iTcu6J53s4st297bD?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc18/conf/vcc18.QPPWGaf_20.yaml) |
+| [vcc20](https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing) | EN | 24000 | melf0h128<br>(uv + f0 + mel-scp) | [PWG_20](https://drive.google.com/drive/folders/1TTJMGyzHSSLzqqFcQwYyjsKwcW48S9zc?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.PWG_20.yaml) |
+| [vcc20](https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing) | EN | 24000 | melf0h128 | [PWG_30](https://drive.google.com/drive/folders/1rrHVtBQRqclsskBJi6IErF-FqOqb6v37?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.PWG_30.yaml) |
+| [vcc20](https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing) | EN | 24000 | melf0h128 | [QPPWGaf_20](https://drive.google.com/drive/folders/1UXZG17xsE3MCqroAe_5vj49aeW7xEH6M?usp=sharing) | [link](https://github.com/bigpon/QPPWG/blob/master/egs/vcc20/conf/vcc20.QPPWGaf_20.yaml) |
+-->
+
 <table class="tg">
 <thead>
   <tr>
@@ -200,7 +213,7 @@ $ tensorboard --logdir exp
     vcc18</a></td>
     <td class="tg-0pky" rowspan="3">EN</td>
     <td class="tg-0pky" rowspan="3">22050</td>
-    <td class="tg-0pky" rowspan="3">world</td>
+    <td class="tg-0pky" rowspan="3">world<br>(uv + f0 + mcep + ap)<br>(shiftms: 5)</td>
     <td class="tg-0pky">
     <a href="https://drive.google.com/drive/folders/1kTQ0iYBy7t7EnxFiwhh7gII1KVDpuvts?usp=sharing">
     PWG_20</a></td>
@@ -230,7 +243,7 @@ $ tensorboard --logdir exp
     vcc20</td>
     <td class="tg-0pky" rowspan="3">EN</td>
     <td class="tg-0pky" rowspan="3">24000</td>
-    <td class="tg-0pky" rowspan="3">melfb + f0</td>
+    <td class="tg-0pky" rowspan="3">melf0h128<br>(uv + f0 + mel-spc)<br>(hop_size: 128)</td>
     <td class="tg-0pky">
     <a href="https://drive.google.com/drive/folders/1TTJMGyzHSSLzqqFcQwYyjsKwcW48S9zc?usp=sharing">
     PWG_20</td>
@@ -256,7 +269,6 @@ $ tensorboard --logdir exp
   </tr>
 </tbody>
 </table>
-</center>
 
 
 ## Usage of pre-trained models
