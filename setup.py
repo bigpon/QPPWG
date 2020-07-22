@@ -24,8 +24,7 @@ requirements = {
     "install": [
         "torch>=1.0.1",
         "setuptools>=38.5.1",
-        "librosa>=0.7.0",
-        "numba==0.48",
+        "librosa>=0.8.0",
         "soundfile>=0.10.2",
         "tensorboardX>=1.8",
         "matplotlib>=3.1.0",
@@ -64,7 +63,7 @@ extras_require = {k: v for k, v in requirements.items()
 
 dirname = os.path.dirname(__file__)
 setup(name="qppwg",
-      version="0.1.2.a",
+      version="0.1.2",
       url="http://github.com/bigpon/QPPWG",
       author="Yi-Chiao Wu",
       author_email="yichiao.wu@g.sp.m.is.nagoya-u.ac.jp",

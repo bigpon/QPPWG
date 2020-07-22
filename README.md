@@ -17,9 +17,10 @@ More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicPa
 
 ## News
 
+- **2020/7/22** Release v0.1.2
 - **2020/6/27** Release **mel-spec** feature extraction and the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.
 - **2020/6/26** Release the pre-trained models of [vcc18](http://www.vc-challenge.org/vcc2018/index.html) corpus.
-- **2020/5/20** Release the first version.
+- **2020/5/20** Release the first version (v0.1.1).
 
 
 ## Requirements
@@ -173,11 +174,6 @@ $ tensorboard --logdir exp
 
 ## Models and results
 
-[NOTE] `vcc20` now is only for version "qppwg 0.1.2a0". If you want to test with `vcc20`, please install qppwg by
-```bash
-$ pip install qppwg==0.1.2a0
-```
-
 - The pre-trained models and generated utterances are released.
 - You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.
 - You also can only download the `[corpus]/data` folder and the desired pre-trained model and then put the `data` folder in `egs/[corpus]` and the model folder in `egs/[corpus]/exp`.
@@ -241,7 +237,7 @@ $ pip install qppwg==0.1.2a0
     <td class="tg-0pky" rowspan="3">
     <a href="https://drive.google.com/drive/folders/1khnMmwY-_6HzNtZgmT2xwoWgC6MYuKLZ?usp=sharing">
     vcc20</td>
-    <td class="tg-0pky" rowspan="3">EN</td>
+    <td class="tg-0pky" rowspan="3">EN, FI, DE, ZH</td>
     <td class="tg-0pky" rowspan="3">24000</td>
     <td class="tg-0pky" rowspan="3">melf0h128<br>(uv + f0 + mel-spc)<br>(hop_size: 128)</td>
     <td class="tg-0pky">
