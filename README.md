@@ -339,11 +339,12 @@ The QPPWG repository is developed based on the following repositories and paper.
 If you find the code is helpful, please cite the following article.
 
 ```
-@article{wu2020qppwg,
-title={Quasi-Periodic Parallel WaveGAN Vocoder: A Non-autoregressive Pitch-dependent   Dilated Convolution Model for Parametric Speech Generation},
+@InProceedings{wu2020qppwg,
 author={Wu, Yi-Chiao and Hayashi, Tomoki and Okamoto, Takuma and Kawai, Hisashi and Toda, Tomoki},
-journal={arXiv preprint arXiv:2005.08654},
-year={2020}
+title={Quasi-Periodic Parallel WaveGAN Vocoder: A Non-autoregressive Pitch-dependent Dilated Convolution Model for Parametric Speech Generation},
+booktitle="Proc. Interspeech",
+year="2020",
+month="Oct.",
 }
 ```
 
@@ -351,9 +352,9 @@ year={2020}
 ## Authors
 
 Development:
-Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))
+Yi-Chiao Wu @ Nagoya University ([@bigpon](https://github.com/bigpon))<br />
 E-mail: `yichiao.wu@g.sp.m.is.nagoya-u.ac.jp`
 
 Advisor:
-Tomoki Toda @ Nagoya University
+Tomoki Toda @ Nagoya University<br />
 E-mail: `tomoki@icts.nagoya-u.ac.jp`
