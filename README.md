@@ -90,7 +90,7 @@ $ unzip data/wav/eval.zip -d data/wav/
 
 ```bash
 # Extract WORLD acoustic features and statistics of training and testing data
-$ bash run.sh --stage 0 --config PWG_30
+$ bash run.sh --stage 0 --conf PWG_30
 ```
 
 - WORLD-related settings can be changed in `egs/vcc18/conf/vcc18.PWG_30.yaml`.
@@ -177,7 +177,7 @@ $ tensorboard --logdir exp
 - The pre-trained models and generated utterances are released.
 - You can download the whole folder of each corpus and then put it in `egs/[corpus]` to run speech generations with the pre-trained models.
 - You also can only download the `[corpus]/data` folder and the desired pre-trained model and then put the `data` folder in `egs/[corpus]` and the model folder in `egs/[corpus]/exp`.
-- Both models with 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.
+- Models with both 100,000 iterations (trained w/ only STFT loss) and 400,000 iterations (trained w/ STFT and GAN losses) are released.
 - The generated utterances are in the `wav` folder of each model’s folder.
 
 <!--
@@ -195,7 +195,7 @@ $ tensorboard --logdir exp
 <thead>
   <tr>
     <th class="tg-0lax">Corpus</th>
-    <th class="tg-0lax">Lang</th>
+    <th class="tg-0lax">Language</th>
     <th class="tg-0lax">Fs [Hz]</th>
     <th class="tg-0lax">Feature</th>
     <th class="tg-0lax">Model</th>
@@ -341,7 +341,7 @@ If you find the code is helpful, please cite the following article.
 ```
 @InProceedings{wu2020qppwg,
 author={Wu, Yi-Chiao and Hayashi, Tomoki and Okamoto, Takuma and Kawai, Hisashi and Toda, Tomoki},
-title={Quasi-Periodic Parallel WaveGAN Vocoder: A Non-autoregressive Pitch-dependent Dilated Convolution Model for Parametric Speech Generation},
+title={{Q}uasi-{P}eriodic {P}arallel {W}ave{GAN} vocoder: a non-autoregressive pitch-dependent dilated convolution model for parametric speech generation},
 booktitle="Proc. Interspeech",
 year="2020",
 month="Oct.",

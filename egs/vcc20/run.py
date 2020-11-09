@@ -61,7 +61,10 @@ if __name__ == "__main__":
     if not any(execute_steps):
         raise("Please specify steps with options")
     # environment setting
-    os.environ['LD_LIBRARY_PATH'] += ":" + LIBRARY_DIR
+    if 'LD_LIBRARY_PATH' in os.environ.keys():
+        os.environ['LD_LIBRARY_PATH'] += ":" + LIBRARY_DIR
+    else:
+        os.environ['LD_LIBRARY_PATH'] = LIBRARY_DIR
     os.environ['CUDA_HOME'] = CUDA_DIR
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
     if args['-g'] is not None:
