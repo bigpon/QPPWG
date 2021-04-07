@@ -4,7 +4,7 @@
 [![](https://img.shields.io/pypi/v/qppwg)](https://pypi.org/project/qppwg/) ![](https://img.shields.io/pypi/pyversions/qppwg) ![](https://img.shields.io/pypi/l/qppwg)
 
 
-This is official [QPPWG](https://arxiv.org/abs/2005.08654) PyTorch implementation.
+This is official QPPWG [[1](https://arxiv.org/abs/2005.08654), [2](https://ieeexplore.ieee.org/document/9361096)] PyTorch implementation.
 QPPWG is a non-autoregressive neural speech generation model developed based on [PWG](https://ieeexplore.ieee.org/abstract/document/9053795) and [QP](https://bigpon.github.io/QuasiPeriodicWaveNet_demo) structure.
 
 <p align="center">
@@ -17,10 +17,11 @@ More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicPa
 
 ## News
 
-- **2020/7/22** Release v0.1.2
-- **2020/6/27** Release **mel-spec** feature extraction and the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.
-- **2020/6/26** Release the pre-trained models of [vcc18](http://www.vc-challenge.org/vcc2018/index.html) corpus.
-- **2020/5/20** Release the first version (v0.1.1).
+- **2021/4/07**   The related work [uSFGAN](https://github.com/chomeyama/UnifiedSourceFilterGAN) with improved periodic modeling is released by Reo Yoneyama @ Nagoya University ([@chomeyama](https://github.com/chomeyama)).
+- **2020/7/22**  Release v0.1.2
+- **2020/6/27**  Release **mel-spec** feature extraction and the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.
+- **2020/6/26**  Release the pre-trained models of [vcc18](http://www.vc-challenge.org/vcc2018/index.html) corpus.
+- **2020/5/20**  Release the first version (v0.1.1).
 
 
 ## Requirements
@@ -339,13 +340,24 @@ The QPPWG repository is developed based on the following repositories and paper.
 If you find the code is helpful, please cite the following article.
 
 ```
-@InProceedings{wu2020qppwg,
-author={Wu, Yi-Chiao and Hayashi, Tomoki and Okamoto, Takuma and Kawai, Hisashi and Toda, Tomoki},
-title={{Q}uasi-{P}eriodic {P}arallel {W}ave{GAN} vocoder: a non-autoregressive pitch-dependent dilated convolution model for parametric speech generation},
-booktitle="Proc. Interspeech",
-year="2020",
-month="Oct.",
+@inproceedings{qppwg_2020,
+author={Yi-Chiao Wu and Tomoki Hayashi and Takuma Okamoto and Hisashi Kawai and Tomoki Toda},
+title={{Quasi-Periodic Parallel WaveGAN Vocoder: A Non-Autoregressive Pitch-Dependent Dilated Convolution Model for Parametric Speech Generation}},
+year=2020,
+booktitle={Proc. Interspeech 2020},
+pages={3535--3539},
+doi={10.21437/Interspeech.2020-1070},
+url={http://dx.doi.org/10.21437/Interspeech.2020-1070}
 }
+
+@ARTICLE{9324976,
+author={Y. -C. {Wu} and T. {Hayashi} and T. {Okamoto} and H. {Kawai} and T. {Toda}},
+journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+title={Quasi-Periodic Parallel WaveGAN: A Non-Autoregressive Raw Waveform Generative Model With Pitch-Dependent Dilated Convolution Neural Network},
+year={2021},
+volume={29},
+pages={792-806},
+doi={10.1109/TASLP.2021.3051765}}
 ```
 
 

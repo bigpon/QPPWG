@@ -129,6 +129,7 @@ if __name__ == "__main__":
             os.system(cmd)
         # calculate statistic
         _path_check([train_aux])
+        _path_initial([os.path.dirname(stats)])
         cmd = entry_stats + \
             " --feats "   + train_aux + \
             " --config "  + config + \
