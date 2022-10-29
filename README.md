@@ -17,8 +17,8 @@ More details can be found on our [Demo](https://bigpon.github.io/QuasiPeriodicPa
 
 ## News
 
-- **2022/10/26**   The related work [SiFiGAN](https://github.com/chomeyama/SiFiGAN) with improved periodic modeling is released by Reo Yoneyama @ Nagoya University ([@chomeyama](https://github.com/chomeyama)).
-- **2022/5/10**   The related work [Hn-uSFGAN](https://github.com/chomeyama/HN-UnifiedSourceFilterGAN) with improved periodic modeling is released by Reo Yoneyama @ Nagoya University ([@chomeyama](https://github.com/chomeyama)).
+- **2022/10/26**   The related work [SiFiGAN](https://github.com/chomeyama/SiFiGAN) with improved inference speed is released by Reo Yoneyama ([@chomeyama](https://github.com/chomeyama)).
+- **2022/5/10**   The related work [Hn-uSFGAN](https://github.com/chomeyama/HN-UnifiedSourceFilterGAN) with further improved periodic modeling is released by Reo Yoneyama ([@chomeyama](https://github.com/chomeyama)).
 - **2021/4/07**   The related work [uSFGAN](https://github.com/chomeyama/UnifiedSourceFilterGAN) with improved periodic modeling is released by Reo Yoneyama @ Nagoya University ([@chomeyama](https://github.com/chomeyama)).
 - **2020/7/22**  Release v0.1.2
 - **2020/6/27**  Release **mel-spec** feature extraction and the pre-trained models of [vcc20](http://www.vc-challenge.org/) corpus.
